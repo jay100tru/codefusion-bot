@@ -15,6 +15,7 @@ agents:
         command: "build_project"
       - name: Test
         command: "run_tests"
+
 EOL
 
 # Create GitHub Actions workflow file
