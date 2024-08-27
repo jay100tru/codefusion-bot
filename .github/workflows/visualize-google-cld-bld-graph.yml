@@ -1,0 +1,16 @@
+            - name: Visualize google cloud build graph
+  # You may pin to the exact commit or the version.
+  # uses: gecko655/github-action-visualize-gcb-graph@aba569609bb086c13f49f4685afaf259b5aca67b
+  uses: gecko655/github-action-visualize-gcb-graph@v0.0.3
+  with:
+    # The version of https://github.com/RyanSiu1995/gcb-visualizer, starts with "v"
+    gcb-visualizer-version: # optional, default is v1.0.1
+    # Comma separated list of dictionaries that cloudbuild.yaml files are searched
+    search-directories: # optional, default is .
+    # Custom pattern for the "cloudbuild.yaml" file name. This value is used as a parameter of `find -name`. See: https://man7.org/linux/man-pages/man1/find.1.html
+    filename-find-pattern: # optional, default is cloudbuild.yaml
+    # Output directory of the output visualized image files. This value is used as a relative path from the path of the directory of the cloudbuild.yaml
+    output-directory-relative-path: # optional, default is images
+    # The file extension of the output visualized image files. See https://github.com/RyanSiu1995/gcb-visualizer#current-features to check available options
+    output-filetype: # optional, default is png
+          
