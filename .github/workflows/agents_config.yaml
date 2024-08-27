@@ -1,0 +1,8 @@
+agents:
+  - name: Scheduler
+    type: scheduler
+    tasks:
+      - name: Build
+        command: "build_project"
+      - name: Test
+        command: "run_tests"
