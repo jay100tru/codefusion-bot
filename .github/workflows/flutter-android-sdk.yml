@@ -1,0 +1,5 @@
+            - name: flutter-android-sdk
+  # You may pin to the exact commit or the version.
+  # uses: andreujuanc/flutter-android-sdk@e347c4122d3ccf725c153b5e2d6d3b88ec2c3557
+  uses: andreujuanc/flutter-android-sdk@v1.0.6
+          
