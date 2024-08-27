@@ -102,6 +102,17 @@ def read_status():
     return {"status": "running"}
 EOL
 
+# Create requirements.txt
+cat <<EOL > requirements.txt
+grpcio
+grpcio-tools
+fastapi
+uvicorn
+EOL
+
+# Compile number_sorting.proto
+python -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. server/number_sorting.proto
+
 # Modify main.dart to integrate gRPC client and FutureBuilder
 cat <<EOL >> app/lib/main.dart
 import 'package:flutter/material.dart';
@@ -164,7 +175,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ],
                 );
               } else if (snapshot.hasError) {
-                return Text('Error: ${snapshot.error}');
+                return Text('Error: \${snapshot.error}');
               } else {
                 return const Text(
                   'Python has been loaded',
@@ -202,14 +213,6 @@ cat <<EOL >> app/pubspec.yaml
 flutter:
   assets:
     - assets/server_py_flutter_linux
-EOL
-
-# Create requirements.txt
-cat <<EOL > requirements.txt
-grpcio
-grpcio-tools
-fastapi
-uvicorn
 EOL
 
 # Create .pre-commit-config.yaml
@@ -302,4 +305,3 @@ build-backend = "poetry.core.masonry.api"
 EOL
 
 echo "Project structure and files have been set up successfully."
-
